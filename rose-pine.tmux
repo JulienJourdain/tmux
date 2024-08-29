@@ -401,19 +401,6 @@ main() {
         left_column=$show_session$show_window
     fi
     #
-    # Appending / Prepending custom user sections to
-    if [[ "$status_left_prepend_section" != "" ]]; then
-        left_column=$status_left_prepend_section$left_column
-    fi
-    if [[ "$status_left_append_section" != "" ]]; then
-        left_column=$left_column$status_left_append_section$spacer
-    fi
-    if [[ "$status_right_prepend_section" != "" ]]; then
-        right_column=$status_right_prepend_section$right_column
-    fi
-    if [[ "$status_right_append_section" != "" ]]; then
-        right_column=$right_column$status_right_append_section
-    fi
 
     # We set the sections
     set status-left "$left_column"
@@ -435,6 +422,20 @@ main() {
         fi
     else
         set status-right "$right_column"
+    fi
+
+    # Appending / Prepending custom user sections to
+    if [[ "$status_left_prepend_section" != "" ]]; then
+        left_column=$status_left_prepend_section$left_column
+    fi
+    if [[ "$status_left_append_section" != "" ]]; then
+        left_column=$left_column$status_left_append_section$spacer
+    fi
+    if [[ "$status_right_prepend_section" != "" ]]; then
+        right_column=$status_right_prepend_section$right_column
+    fi
+    if [[ "$status_right_append_section" != "" ]]; then
+        right_column=$right_column$status_right_append_section
     fi
 
     # Defaults to a NerdFont icon, user can change through an option
